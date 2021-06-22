@@ -12,36 +12,36 @@ class MRZParser {
     static let shared = MRZParser()
     
     func parseMRZ(from mrzString: String) -> String {
-        var mrzComponents = mrzString.components(separatedBy: "<")
-        
-        // Remove the Country code from the Surname
-        var surname = mrzComponents[1].dropFirst(3)
-        
-        mrzComponents.removeSubrange(0...1)
+        // Convert the string to an array of characters
+        var mrzParts: [Character] = []
+        mrzString.map({ mrzParts.append($0)})
         
         // Find and append additional parts of the Surname
-        let result = getName(from: mrzComponents)
-        surname += result.name
+        let result = getName(from: mrzParts, startingAt: 5)
+        let surname = result.name
         
-        mrzComponents.removeSubrange(0...result.lastIndexUsed)
-        
-        let givenName = getName(from: mrzComponents).name
+        let givenName = getName(from: mrzParts, startingAt: result.lastIndexUsed+2).name
         
         return "\(givenName) \(surname)"
     }
     
     /// Obtain string values between filler characters to create part of a name
-    private func getName(from components: [String]) -> (name: String, lastIndexUsed: Int) {
+    private func getName(from components: [Character], startingAt: Int) -> (name: String, lastIndexUsed: Int) {
+        let filler: Character = "<"
         var stoppedAt = 0
-        var name = ""
-        for i in 0...components.count - 1 {
-            if components[i] == "" {
+        var name: [Character] = []
+        
+        for i in startingAt...components.count - 1 {
+            if components[i] == filler && components[i + 1] == filler {
                 stoppedAt = i
                 break
+            } else if components[i] == filler {
+                name.append(" ")
+            } else {
+                name.append(components[i])
             }
-            name += " \(components[i])"
         }
         
-        return (name, stoppedAt)
+        return (String(name), stoppedAt)
     }
 }
