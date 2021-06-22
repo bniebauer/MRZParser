@@ -22,7 +22,7 @@ struct SearchResult: Codable {
 
 class GitHubRequestController {
     static let shared = GitHubRequestController()
-    let baseURLString = "https://api.github.com/search/users"
+    private let baseURLString = "https://api.github.com/search/users"
     
     func fetchUsers(matching query: [String: String], completion: @escaping (Result<[UserData], Error>) -> Void) {
         var urlComponents = URLComponents(string: baseURLString)!
