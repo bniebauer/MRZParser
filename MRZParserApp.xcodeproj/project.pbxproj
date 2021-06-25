@@ -12,8 +12,20 @@
 		322DEF2D26812F9F00D61D78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322DEF2C26812F9F00D61D78 /* Assets.xcassets */; };
 		322DEF3026812F9F00D61D78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322DEF2F26812F9F00D61D78 /* Preview Assets.xcassets */; };
 		322DEF38268161FA00D61D78 /* MRZParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322DEF37268161FA00D61D78 /* MRZParser.swift */; };
+		324D11E52686022900E14892 /* MRZParserAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D11E42686022900E14892 /* MRZParserAppTests.swift */; };
+		324D11ED26863A4300E14892 /* MRZData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D11EC26863A4300E14892 /* MRZData.swift */; };
 		32D475AB268216BE00D8CB1E /* GitHubRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D475AA268216BE00D8CB1E /* GitHubRequestController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		324D11E72686022900E14892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 322DEF1D26812F9A00D61D78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 322DEF2426812F9A00D61D78;
+			remoteInfo = MRZParserApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		322DEF2526812F9B00D61D78 /* MRZParserApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRZParserApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,11 +35,22 @@
 		322DEF2F26812F9F00D61D78 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		322DEF3126812F9F00D61D78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322DEF37268161FA00D61D78 /* MRZParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZParser.swift; sourceTree = "<group>"; };
+		324D11E22686022900E14892 /* MRZParserAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MRZParserAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		324D11E42686022900E14892 /* MRZParserAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZParserAppTests.swift; sourceTree = "<group>"; };
+		324D11E62686022900E14892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		324D11EC26863A4300E14892 /* MRZData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZData.swift; sourceTree = "<group>"; };
 		32D475AA268216BE00D8CB1E /* GitHubRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequestController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		322DEF2226812F9A00D61D78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		324D11DF2686022900E14892 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				322DEF2726812F9B00D61D78 /* MRZParserApp */,
+				324D11E32686022900E14892 /* MRZParserAppTests */,
 				322DEF2626812F9B00D61D78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				322DEF2526812F9B00D61D78 /* MRZParserApp.app */,
+				324D11E22686022900E14892 /* MRZParserAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +88,7 @@
 				322DEF2E26812F9F00D61D78 /* Preview Content */,
 				322DEF37268161FA00D61D78 /* MRZParser.swift */,
 				32D475AA268216BE00D8CB1E /* GitHubRequestController.swift */,
+				324D11EC26863A4300E14892 /* MRZData.swift */,
 			);
 			path = MRZParserApp;
 			sourceTree = "<group>";
@@ -73,6 +99,15 @@
 				322DEF2F26812F9F00D61D78 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		324D11E32686022900E14892 /* MRZParserAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				324D11E42686022900E14892 /* MRZParserAppTests.swift */,
+				324D11E62686022900E14892 /* Info.plist */,
+			);
+			path = MRZParserAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +130,24 @@
 			productReference = 322DEF2526812F9B00D61D78 /* MRZParserApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		324D11E12686022900E14892 /* MRZParserAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 324D11EB2686022900E14892 /* Build configuration list for PBXNativeTarget "MRZParserAppTests" */;
+			buildPhases = (
+				324D11DE2686022900E14892 /* Sources */,
+				324D11DF2686022900E14892 /* Frameworks */,
+				324D11E02686022900E14892 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				324D11E82686022900E14892 /* PBXTargetDependency */,
+			);
+			name = MRZParserAppTests;
+			productName = MRZParserAppTests;
+			productReference = 324D11E22686022900E14892 /* MRZParserAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -106,6 +159,10 @@
 				TargetAttributes = {
 					322DEF2426812F9A00D61D78 = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					324D11E12686022900E14892 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 322DEF2426812F9A00D61D78;
 					};
 				};
 			};
@@ -123,6 +180,7 @@
 			projectRoot = "";
 			targets = (
 				322DEF2426812F9A00D61D78 /* MRZParserApp */,
+				324D11E12686022900E14892 /* MRZParserAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +195,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		324D11E02686022900E14892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -144,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324D11ED26863A4300E14892 /* MRZData.swift in Sources */,
 				32D475AB268216BE00D8CB1E /* GitHubRequestController.swift in Sources */,
 				322DEF2B26812F9B00D61D78 /* ContentView.swift in Sources */,
 				322DEF38268161FA00D61D78 /* MRZParser.swift in Sources */,
@@ -151,7 +217,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		324D11DE2686022900E14892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				324D11E52686022900E14892 /* MRZParserAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		324D11E82686022900E14892 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 322DEF2426812F9A00D61D78 /* MRZParserApp */;
+			targetProxy = 324D11E72686022900E14892 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		322DEF3226812F9F00D61D78 /* Debug */ = {
@@ -314,6 +396,46 @@
 			};
 			name = Release;
 		};
+		324D11E92686022900E14892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87W34RA6G8;
+				INFOPLIST_FILE = MRZParserAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.niebauer.MRZParserAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MRZParserApp.app/MRZParserApp";
+			};
+			name = Debug;
+		};
+		324D11EA2686022900E14892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87W34RA6G8;
+				INFOPLIST_FILE = MRZParserAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.niebauer.MRZParserAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MRZParserApp.app/MRZParserApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +453,15 @@
 			buildConfigurations = (
 				322DEF3526812F9F00D61D78 /* Debug */,
 				322DEF3626812F9F00D61D78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		324D11EB2686022900E14892 /* Build configuration list for PBXNativeTarget "MRZParserAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				324D11E92686022900E14892 /* Debug */,
+				324D11EA2686022900E14892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

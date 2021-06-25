@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var mrzEntry: String = ""
+    @State var parsed: Bool = false
+    @State var showingAlert: Bool = false
     @State var name: String = ""
+    @State var country: String = ""
     @State var userList: [UserData] = []
+    @State var errorMessage: String = ""
     
     var body: some View {
         VStack {
@@ -29,11 +33,30 @@ struct ContentView: View {
                     .padding(10)
                     
             })
-            Text(name)
+            .animation(.interactiveSpring())
+            .alert(isPresented: $showingAlert, content: {
+                Alert(title: Text("An error occured"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            })
+            if parsed {
+                VStack(alignment: .leading) {
+                    Text("Name: \(name)")
+                    Text("Country: \(country)")
+                }
+            }
             if userList.count > 0 {
-                List {
-                    ForEach(userList, id: \.id) { user in
-                        Text("UserName: \(user.login)")
+                withAnimation(.easeIn){
+                    List {
+                        ForEach(userList, id: \.id) { user in
+                            HStack {
+                                Text("UserName: \(user.login)")
+                                Link(destination: URL(string: user.html_url)!) {
+                                    Text("Click for GitHub Page")
+                                        .font(.headline)
+                                        .underline()
+                                        .foregroundColor(.blue)
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -44,22 +67,30 @@ struct ContentView: View {
     }
     
     func updateUI() {
-        name = MRZParser.shared.parseMRZ(from: mrzEntry)
-        
-        let query = [
-            "q": name
-        ]
-        GitHubRequestController.shared.fetchUsers(matching: query) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let userData):
-                    print(userData)
-                    userList = userData
-                case .failure(let error):
-                    print(error)
+        do {
+            let mrzData = try MRZParser.shared.parseMRZ(from: mrzEntry)
+            parsed = true
+            name = "\(mrzData!.givenName) \(mrzData!.surName)"
+            country = mrzData!.countryCode
+            let query = [
+                "q": name
+            ]
+            GitHubRequestController.shared.fetchUsers(matching: query) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let userData):
+                        print(userData)
+                        userList = userData
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
                 }
-                
             }
+        } catch {
+            // Display Error
+            errorMessage = error.localizedDescription
+            showingAlert = true
         }
     }
 }
